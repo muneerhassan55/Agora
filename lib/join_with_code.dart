@@ -14,6 +14,7 @@ class _JoinWithCodeState extends State<JoinWithCode> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           child: Column(
@@ -28,12 +29,19 @@ class _JoinWithCodeState extends State<JoinWithCode> {
                 child: Column(
                   children: [
                     Image.asset('assets/a1.png'),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Text(
                       'Enter  meeting code below',
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Card(
+                      color: Colors.grey[300],
                       elevation: 20,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25)),
@@ -45,7 +53,17 @@ class _JoinWithCodeState extends State<JoinWithCode> {
                             hintText: 'Example: abc-efg-dhi'),
                       ),
                     ),
-                    ElevatedButton(onPressed: () {}, child: Text('Join'))
+                    SizedBox(
+                      height: 20,
+                    ),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue),
+                        onPressed: () {},
+                        child: Text(
+                          'Join',
+                          style: TextStyle(color: Colors.white),
+                        ))
                   ],
                 ),
               ),

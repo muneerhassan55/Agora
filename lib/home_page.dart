@@ -1,4 +1,5 @@
 import 'package:agora_callling/join_with_code.dart';
+import 'package:agora_callling/new_meeting.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,10 +25,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => JoinWithCode()),
-                );
+                Get.to(() => NewMeeting());
               },
               child: Container(
                 width: 300,
