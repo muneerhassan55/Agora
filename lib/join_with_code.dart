@@ -1,3 +1,4 @@
+import 'package:agora_callling/video_call.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -59,7 +60,9 @@ class _JoinWithCodeState extends State<JoinWithCode> {
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blue),
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(() => VideoCall());
+                        },
                         child: Text(
                           'Join',
                           style: TextStyle(color: Colors.white),
