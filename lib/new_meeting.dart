@@ -1,5 +1,8 @@
+import 'package:agora_callling/video_call.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:share/share.dart';
+import 'package:uuid/uuid.dart';
 
 class NewMeeting extends StatefulWidget {
   const NewMeeting({super.key});
@@ -10,6 +13,15 @@ class NewMeeting extends StatefulWidget {
 
 class _NewMeetingState extends State<NewMeeting> {
   TextEditingController controller = TextEditingController();
+  String meetingCode = 'abcdfgqw';
+  @override
+  void initState() {
+    var uuid = Uuid();
+
+    meetingCode = uuid.v1().substring(0, 8);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -48,7 +60,7 @@ class _NewMeetingState extends State<NewMeeting> {
                       child: ListTile(
                         leading: Icon(Icons.link),
                         title: SelectableText(
-                          'askdska',
+                          meetingCode,
                           style: TextStyle(fontWeight: FontWeight.w300),
                         ),
                         trailing: Icon(Icons.copy),
@@ -66,6 +78,7 @@ class _NewMeetingState extends State<NewMeeting> {
                     ),
                     GestureDetector(
                       onTap: () {
+                        Share.share('Meeting Code  $meetingCode');
                         //Get.to(() => JoinWithCode());
                       },
                       child: Container(
@@ -98,7 +111,9 @@ class _NewMeetingState extends State<NewMeeting> {
                       height: 20,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.to((VideoCall()));
+                      },
                       child: Container(
                         width: 300,
                         height: 50,
